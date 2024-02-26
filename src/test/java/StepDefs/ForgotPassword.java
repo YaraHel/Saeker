@@ -10,4 +10,5 @@ public class ForgotPassword {
     public void forgotPasswordLinkDisplayedWithResendPasswordOrLoginButtons() {
         obj.forgotPasswordLinkDisplayedWithResendPasswordOrLoginButtons();
     }
+
 }

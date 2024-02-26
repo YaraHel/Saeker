@@ -32,6 +32,9 @@ public class LoginLogic extends LoginPO {
             case "Resend Password":
                 waitForVisibility(resetPassword);
                 clickToElement(resetPassword);
+            case "My Work":
+                waitForVisibility(myWorkTab);
+                clickToElement(myWorkTab);
                 break;
         }
         //to be implemented all buttons
@@ -51,15 +54,23 @@ public class LoginLogic extends LoginPO {
         switch (message) {
             case "Missing credentials":
                 waitForVisibility(missingCredentials);
-                Assertions.assertEquals(message,driver.findElement(missingCredentials).getText());
+                isMessageDisplayed(missingCredentials, message);
+                //Assertions.assertEquals(message,driver.findElement(missingCredentials).getText());
                 break;
             case "This password is not correct. Please use the below “Forgot your password” link to reset":
                 waitForVisibility(incorrectPassword);
-                Assertions.assertEquals(message,driver.findElement(incorrectPassword).getText());
+                isMessageDisplayed(incorrectPassword, message);
+                //Assertions.assertEquals(message,driver.findElement(incorrectPassword).getText());
                 break;
             case "This email is not registered.":
                 waitForVisibility(emailNotRegistered);
-                Assertions.assertEquals(message,driver.findElement(emailNotRegistered).getText());
+                isMessageDisplayed(emailNotRegistered, message);
+                //Assertions.assertEquals(message,driver.findElement(emailNotRegistered).getText());
+                break;
+            case "Password reset link sent to your email address":
+                waitForVisibility(resetToastMessage);
+                isMessageDisplayed(resetToastMessage, message);
+                break;
             default:
                 break;
         }

@@ -36,6 +36,10 @@ public class PageObjectBase {
 
     public void isElementDisplayed(By element) {
         Assertions.assertTrue(driver.findElement(element).isDisplayed());
-
     }
+
+    public void isMessageDisplayed(By element, String message) {
+        Assertions.assertEquals(message,driver.findElement(element).getText());
+    }
+
 }
