@@ -1,3 +1,4 @@
+@REGRESSION
 Feature: Login screen
 
   Background: Launch website to validate login scenarios
@@ -10,7 +11,7 @@ Feature: Login screen
     Then Verify that user can login successfully
 
   Scenario: Leave password blank
-    When Enter valid password
+    When Enter valid username
     And Leave password field blank
     And Click on 'Login'
     Then Verify that Message pops up saying 'Missing credentials'
@@ -27,7 +28,8 @@ Feature: Login screen
     And Click on 'Login'
     Then Verify that Message pops up saying 'This password is not correct. Please use the below “Forgot your password” link to reset'
     
-  Scenario: Enter valid password
+  Scenario: Enter invalid username
     When Enter invalid username
     And Enter valid password
-    Then Verify that Message pops up saying 'This password is not correct. Please use the below “Forgot your password” link to reset'
+    And Click on 'Login'
+    Then Verify that Message pops up saying 'This email is not registered.'

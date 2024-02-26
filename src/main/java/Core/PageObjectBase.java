@@ -2,9 +2,10 @@ package Core;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.junit.jupiter.api.Assertions;
+
 
 import java.time.Duration;
 
@@ -17,8 +18,8 @@ public class PageObjectBase {
     }
 
     public void waitForVisibility(By element) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(200));
-        wait.until(ExpectedConditions.visibilityOf(driver.findElement(element)));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(90));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(element));
     }
 
     public void sendKeys(By element, String text) {
@@ -31,5 +32,10 @@ public class PageObjectBase {
 
     public void clearTextField(By element){
         driver.findElement(element).clear();
+    }
+
+    public void isElementDisplayed(By element) {
+        Assertions.assertTrue(driver.findElement(element).isDisplayed());
+
     }
 }
