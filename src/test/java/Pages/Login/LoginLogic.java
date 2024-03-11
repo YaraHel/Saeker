@@ -26,15 +26,24 @@ public class LoginLogic extends LoginPO {
             case "Login":
                 waitForVisibility(Login);
                 clickToElement(Login);
+                break;
             case "Forgot your password?":
                 waitForVisibility(forgotPassword);
                 clickToElement(forgotPassword);
+                break;
             case "Resend Password":
                 waitForVisibility(resetPassword);
                 clickToElement(resetPassword);
+                break;
             case "My Work":
                 waitForVisibility(myWorkTab);
                 clickToElement(myWorkTab);
+                break;
+            case "All locations":
+                waitForVisibility(locationDropDownList);
+                clickToElement(locationDropDownList);
+                break;
+            default:
                 break;
         }
         //to be implemented all buttons
