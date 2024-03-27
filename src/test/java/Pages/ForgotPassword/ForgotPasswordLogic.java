@@ -1,7 +1,5 @@
 package Pages.ForgotPassword;
 
-import org.junit.jupiter.api.Assertions;
-
 import java.util.Properties;
 import javax.mail.*;
 
@@ -9,8 +7,7 @@ public class ForgotPasswordLogic extends ForgotPasswordPO {
 
     public void forgotPasswordLinkDisplayedWithResendPasswordOrLoginButtons() {
         waitForVisibility(resetPassword);
-        String expectedUrl = driver.getCurrentUrl();
-        Assertions.assertTrue(expectedUrl.contains("forgetpassword"));
+        validateURL("forgetpassword");
         isElementDisplayed(Login);
     }
 

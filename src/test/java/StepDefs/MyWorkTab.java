@@ -29,4 +29,34 @@ public class MyWorkTab {
     public void verifyUserCanScrollDownInsideLocationDropdown() {
         obj.scrollInsideDropDown();
     }
+
+    @Then("Verify titles and percentages")
+    public void verifyTitlesAndPercentages() {
+        obj.verifyTitleAndPercentageOfWheels();
+    }
+
+    @Then("The rings and location drop down should collaps")
+    public void theRingsAndLocationDropDownShouldCollaps() {
+        obj.collapsRingsAndLocationDropDownShould();
+    }
+
+    @Then("Display all the activity summary boxes")
+    public void displayAllTheActivitySummaryBoxes() {
+        obj.verifyActivitySummaryBoxes();
+    }
+
+    @Then("The rings and location drop down should visible")
+    public void theRingsAndLocationDropDownShouldVisible() {
+        obj.verifyRingsAndLocationAppearance();
+    }
+
+    @Then("boxes are filtered to only display tasks that are missing documents")
+    public void boxesAreFilteredToOnlyDisplayTasksThatAreMissingDocuments() {
+        obj.showTasksThatAreMissingDocuments();
+    }
+
+    @Then("Verify dropdown options")
+    public void verifyDropdownOptions() {
+        obj.verifyActiveDropDownOptions();
+    }
 }

@@ -40,6 +40,12 @@ public class PageObjectBase {
         Assertions.assertTrue(driver.findElement(element).isDisplayed());
     }
 
+    public void isElementsDisplayed(By... locators) {
+        for (By locator : locators) {
+            Assertions.assertTrue(driver.findElement(locator).isDisplayed());
+        }
+    }
+
     public void isElementNotDisplayed(By element) {
         Assertions.assertFalse(driver.findElement(element).isDisplayed());
     }
@@ -51,6 +57,11 @@ public class PageObjectBase {
     public void scrollToElement(WebElement element) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView(true);", element);
+    }
+
+    public void validateURL(String url){
+        String expectedUrl = driver.getCurrentUrl();
+        Assertions.assertTrue(expectedUrl.contains(url));
     }
 
 }

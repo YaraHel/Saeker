@@ -43,6 +43,22 @@ public class LoginLogic extends LoginPO {
                 waitForVisibility(locationDropDownList);
                 clickToElement(locationDropDownList);
                 break;
+            case "I Icon":
+                waitForVisibility(iIcon);
+                clickToElement(iIcon);
+                break;
+            case "Mid Arrow":
+                waitForVisibility(midArrow);
+                clickToElement(midArrow);
+                break;
+            case "Only show tasks missing documents":
+                waitForVisibility(onlyMissingDocs);
+                clickToElement(onlyMissingDocs);
+                break;
+            case "ActiveInternal", "ActiveExternal", "ActiveActions":
+                waitForVisibility(active);
+                clickToElement(active);
+                break;
             default:
                 break;
         }
@@ -51,8 +67,7 @@ public class LoginLogic extends LoginPO {
 
     public void verifyThatUserCanLoginSuccessfully() {
         waitForVisibility(DashboardPage);
-        String expectedUrl = driver.getCurrentUrl();
-        Assertions.assertTrue(expectedUrl.contains("admin"));
+        validateURL("admin");
     }
 
     public void leavePasswordFieldBlank() {
@@ -79,6 +94,10 @@ public class LoginLogic extends LoginPO {
             case "Password reset link sent to your email address":
                 waitForVisibility(resetToastMessage);
                 isMessageDisplayed(resetToastMessage, message);
+                break;
+            case "The compliance and efficiency wheels show live compliance of tasks and actions currently in view on the screen. Compliance will be affected if the most recent occurrence has been missed and is currently overdue, or if the task is missing a required document that is overdue. Efficiency will be affected if the most recent occurrence was completed but was either completed late or a document was added late or if compliance is affected.":
+                waitForVisibility(infoMessage);
+                isMessageDisplayed(infoMessage, message);
                 break;
             default:
                 break;

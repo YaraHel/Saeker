@@ -11,6 +11,11 @@ public class CommonPO extends PageObjectBase {
     public By resetToastMessage = By.id("toast-container");
     public By myWorkTab = By.id("my-work-link");
     public By locationDropDownList= By.id("dropdown-menu-button");
+    public By iIcon= By.id("");
+    public By infoMessage= By.id("");
+    public By midArrow= By.id("");
+    public By onlyMissingDocs= By.id("onlyMissingDocs");
+    public By active= By.id("Active");
 
     public CommonPO(){
     }
